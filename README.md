@@ -70,6 +70,7 @@ Expected response:
 ```
 curl -X PATCH "http://api.softhouse.rocks/posts/1" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"title\":\"Hello, Patch\",\"body\":\"Testing PATCH\",\"userId\":4445}"
 ```
+
 Expected response:
 ```
 {
@@ -86,14 +87,18 @@ Expected response:
 ```
 curl -X DELETE "http://api.softhouse.rocks/posts/2" -H "accept: application/json"
 ```
+
 Expected response:
-*none*
+```
+none
+```
 
 ## How you test USERS
 ### How to test a GET method
 ```
 curl -X GET "http://api.softhouse.rocks/users" -H "accept: application/json" | jq "."
 ```
+
 Expected response:
 ```
 {
@@ -114,41 +119,125 @@ Expected response:
     "email": "Nathan@yesenia.net",
     "__v": 0
   }
+```
+
+**How to get the response code (add ```-i```, remove ```| jq '.'```)**
 
 ```
-**How to get the response code (add ```-I```, remove ```| jq '.'```)**
+curl -i -X GET "http://api.softhouse.rocks/users" -H "accept: application/json"
 ```
-curl -I -X GET "http://api.softhouse.rocks/users" -H "accept: application/json"
-```
- Expected response code:
- ```
- HTTP/1.1 200 OK
- ```
- ### How to test a POST method
- ```
- curl -X POST "http://api.softhouse.rocks/users" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"name\":\"hcsahcsh\",\"username\":\"scs\",\"email\":\"ax@gmail.com\",\"address\":{\"street\":\"PG vejdes väg\",\"suite\":\"1210\",\"city\":\"Växjö\",\"zipcode\":\"35252\",\"geo\":{\"lat\":0,\"lng\":0}}"
- 
- ```
- Expected response:
- 
-  ```
-{"expose":true,"statusCode":400,"status":400,"body":"
-{\"name\":\"hcsahcsh\",
-\"username\":\"scs\",
-\"email\":\"ax@gmail.com\",
-\"address\":{\"street\":\"PG vejdes v?g\",
-\"suite\":\"1210\",
-\"city\":\"V?xj?\",
-\"zipcode\":\"35252\",
-\"geo\":{\"lat\":0,\"lng\":0}}",
-"type":"entity.parse.failed"}
 
+Expected response code:
+```
+HTTP/1.1 200 OK
+```
+
+### How to test a POST method
+```
+curl -X POST "http://api.softhouse.rocks/users" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"name\":\"hcsahcsh\",\"username\":\"scs\",\"email\":\"ax@gmail.com\",\"address\":{\"street\":\"PG vejdes väg\",\"suite\":\"1210\",\"city\":\"Växjö\",\"zipcode\":\"35252\",\"geo\":{\"lat\":0,\"lng\":0}}" 
+```
+
+Expected response: 
+```
+{
+  "expose":true,
+  "statusCode":400,
+  "status":400,
+  "body":" {
+    \"name\":\"hcsahcsh\",
+    \"username\":\"scs\",
+    \"email\":\"ax@gmail.com\",
+    \"address\":{
+       \"street\":\"PG vejdes v?g\",
+       \"suite\":\"1210\",
+       \"city\":\"V?xj?\",
+       \"zipcode\":\"35252\",
+       \"geo\": {
+        \"lat\":0,\"lng\":0}}",
+  "type":"entity.parse.failed"
+ }
  ```
 
 **How to get the response code (add ```-i```, remove ```| jq '.'```, replace ```" "``` to ```' '```, username needs to be different from email)**
+
 ```
  curl -i -X POST "http://api.softhouse.rocks/users" -H "accept: application/json" -H "Content-Type: application/json" -d '{"name":"string","username":"strinsdfgdddd","email":"stsdfringee","address":{"street":"string","suite":"string","city":"string","zipcode":"string","geo":{"lat":0,"lng":0}}}'
 ```
+
+Expected response:
+```
+HTTP/1.1 201 Created
+```
+
+### How to test a GET method for fetching a specific user
+```
+curl -X GET "http://api.softhouse.rocks/users/5" -H "accept: application/json"
+```
+
+Expected response:
+```
+{
+  "address": {
+    "geo": {
+      "lat":-31.8129,
+      "lng":62.5342},
+    "street":"Skiles Walks",
+    "suite":"Suite 351",
+    "city":"Roscoeview","zipcode":"33263"},
+  "_id":"5caaef896b334800cbf66336",
+  "id":5,
+  "name":"Chelsey Dietrich",
+  "username":"Kamren",
+  "email":"Lucio_Hettinger@annie.ca",
+  "__v":0
+}
+```
+
+**How to get the response code (add ```-i```)**
+```
+curl -i -X GET "http://api.softhouse.rocks/users/5" -H "accept: application/json"
+```
+
+Expected response:
+```
+HTTP/1.1 200 OK
+```
+ 
+### How to test a GET method for fetching a specific user
+```
+curl -X PUT "http://api.softhouse.rocks/users/5" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"name\":\"stringify\",\"username\":\"stringtwo\",\"email\":\"stringthree\",\"address\":{\"street\":\"string\",\"suite\":\"string\",\"city\":\"string\",\"zipcode\":\"string\",\"geo\":{\"lat\":0,\"lng\":0}}}"
+```
+ 
+Expected response:
+```
+ {
+  "address": {
+    "geo": {
+      "lat":0,
+      "lng":0},
+    "street":"string",
+    "suite":"string",
+    "city":"string","zipcode":"string"},
+  "_id":"5caaef896b334800cbf66336",
+  "id":5,
+  "name":"stringify",
+  "username":"stringtwo",
+  "email":"stringthree",
+  "__v":0
+ }
+ ```
+ 
+ **How to get the response code (add ```-i```)**
+ 
+ ```
+curl -i -X PUT "http://api.softhouse.rocks/users/5" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"name\":\"stringify\",\"username\":\"stringtwo\",\"email\":\"stringthree\",\"address\":{\"street\":\"string\",\"suite\":\"string\",\"city\":\"string\",\"zipcode\":\"string\",\"geo\":{\"lat\":0,\"lng\":0}}}"
+```
+
+Expected response:
+```
+HTTP/1.1 200 OK
+```
+
 
 ## Useful information
 * ```-d {} ```
