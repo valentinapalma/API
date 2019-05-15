@@ -241,5 +241,5 @@ HTTP/1.1 200 OK
 
 ## Useful information
 * ```-d {} ```
-* ``` -v ```
+* ``` -v ``` - verbose mode makes curl mote talkative. It will explain and show a lot more of its doings and add informational tests and prefix them with '*'
 * ``` curl -h```
