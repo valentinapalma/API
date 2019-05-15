@@ -1,7 +1,7 @@
 # This is how softhouse.rocks API works and how you test it.
 
 Tools that we used for testing
-* command prompt/terminal
+* Git BASH
 * curl
 * jq
 
