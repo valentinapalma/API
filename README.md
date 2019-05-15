@@ -88,3 +88,7 @@ curl -X DELETE "http://api.softhouse.rocks/posts/2" -H "accept: application/json
 ```
 Expected response:
 *none*
+
+
+## Useful information
+* ```-d {} ```
