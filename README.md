@@ -227,7 +227,7 @@ Expected response:
  }
  ```
  
- **How to get the response code (add ```-i```)**
+ >**How to get the response code (add ```-i```)**
  
  ```
 curl -i -X PUT "http://api.softhouse.rocks/users/5" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"name\":\"stringify\",\"username\":\"stringtwo\",\"email\":\"stringthree\",\"address\":{\"street\":\"string\",\"suite\":\"string\",\"city\":\"string\",\"zipcode\":\"string\",\"geo\":{\"lat\":0,\"lng\":0}}}"
@@ -240,6 +240,6 @@ HTTP/1.1 200 OK
 
 
 ## Useful information
-* ```-d {} ```
+* ```-d ``` - 
 * ``` -v ``` - verbose mode makes curl mote talkative. It will explain and show a lot more of its doings and add informational tests and prefix them with '*'
-* ``` curl -h```
+* ``` curl -h``` - help mode will give you a list of different curl commands/options
