@@ -8,10 +8,12 @@ jq
 ## How you test POSTS
 
 ### How to test a GET method 
-
+```
 curl -X GET "http://api.softhouse.rocks/posts?userId=3" -H "accept: application/json" | jq '.'
+```
 
 Expected response:
+```
   {
     "_id": "5caaef896b334800cbf66354",
     "userId": 3,
@@ -20,19 +22,24 @@ Expected response:
     "body": "ullam consequatur ut\nomnis quis sit vel consequuntur\nipsa eligendi ipsum molestiae et omnis error nostrum\nmolestiae illo tempore quia et distinctio",
     "__v": 0
   },
+ ```
 
 
 ### How to test a POST method
 
+```
 curl -X POST "http://api.softhouse.rocks/posts" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"title\":\"string\",\"body\":\"string\",\"userId\":0}"
+```
 
-Expected response: 
+Expected response:
+```
 {
   "_id":"5cdbcb18f4a0350020b4816b",
    "body":"string",
    "title":"string",
    "userId":0,"id":104,"__v":0
-  }
+}
+```  
 
 ### How to test a PUT method
 
