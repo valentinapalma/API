@@ -89,6 +89,66 @@ curl -X DELETE "http://api.softhouse.rocks/posts/2" -H "accept: application/json
 Expected response:
 *none*
 
+## How you test USERS
+### How to test a GET method
+```
+curl -X GET "http://api.softhouse.rocks/users" -H "accept: application/json" | jq "."
+```
+Expected response:
+```
+{
+    "address": {
+      "geo": {
+        "lat": -68.6102,
+        "lng": -47.0653
+      },
+      "street": "Douglas Extension",
+      "suite": "Suite 847",
+      "city": "McKenziehaven",
+      "zipcode": "59590-4157"
+    },
+    "_id": "5caaef896b334800cbf66334",
+    "id": 3,
+    "name": "Clementine Bauch",
+    "username": "Samantha",
+    "email": "Nathan@yesenia.net",
+    "__v": 0
+  }
+
+```
+**How to get the response code (add ```-I```, remove ```| jq '.'```)**
+```
+curl -I -X GET "http://api.softhouse.rocks/users" -H "accept: application/json"
+```
+ Expected response code:
+ ```
+ HTTP/1.1 200 OK
+ ```
+ ### How to test a POST method
+ ```
+ curl -X POST "http://api.softhouse.rocks/users" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"name\":\"hcsahcsh\",\"username\":\"scs\",\"email\":\"ax@gmail.com\",\"address\":{\"street\":\"PG vejdes väg\",\"suite\":\"1210\",\"city\":\"Växjö\",\"zipcode\":\"35252\",\"geo\":{\"lat\":0,\"lng\":0}}"
+ 
+ ```
+ Expected response:
+ 
+  ```
+{"expose":true,"statusCode":400,"status":400,"body":"
+{\"name\":\"hcsahcsh\",
+\"username\":\"scs\",
+\"email\":\"ax@gmail.com\",
+\"address\":{\"street\":\"PG vejdes v?g\",
+\"suite\":\"1210\",
+\"city\":\"V?xj?\",
+\"zipcode\":\"35252\",
+\"geo\":{\"lat\":0,\"lng\":0}}",
+"type":"entity.parse.failed"}
+
+ ```
+
+**How to get the response code (add ```-i```, remove ```| jq '.'```, replace ```" "``` to ```' '```, username needs to be different from email)**
+```
+ curl -i -X POST "http://api.softhouse.rocks/users" -H "accept: application/json" -H "Content-Type: application/json" -d '{"name":"string","username":"strinsdfgdddd","email":"stsdfringee","address":{"street":"string","suite":"string","city":"string","zipcode":"string","geo":{"lat":0,"lng":0}}}'
+```
 
 ## Useful information
 * ```-d {} ```
