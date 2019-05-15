@@ -3,7 +3,7 @@
 Tools that we used for testing
 * Git BASH
 * curl
-* jq
+* [jq](https://stedolan.github.io/jq/)
 
 ## How you test POSTS
 
