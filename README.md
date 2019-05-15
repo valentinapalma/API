@@ -23,7 +23,8 @@ Expected response:
   },
  ```
 
-How to get the response code (add ```-I```, remove ```| jq '.'```)
+
+**How to get the response code (add ```-I```, remove ```| jq '.'```)**
 ```
 curl -I -X GET "http://api.softhouse.rocks/posts?userId=3" -H "accept: application/json"
 ```
