@@ -244,3 +244,5 @@ HTTP/1.1 200 OK
 * ``` -v ``` - verbose mode makes curl mote talkative. It will explain and show a lot more of its doings and add informational tests and prefix them with '*'
 * ``` curl -h``` - help mode will give you a list of different curl commands/options
 * METHODS : ```GET```, ```POST```, ```PUT```, ```PATCH```, ```DELETE```
+* PATHS: ```POSTS```, ```USERS```
+* ```Conent-Type: application/json```
