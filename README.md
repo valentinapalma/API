@@ -39,6 +39,7 @@ Expected response:
 curl -X PUT "http://api.softhouse.rocks/posts/1" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"title\":\"Hello world\",\"body\":\"Hello Sweden\",\"userId\":56}"
 
 Expected response:
+```
 {
   "_id":"5caaef896b334800cbf6633c",
   "userId":56,
@@ -47,6 +48,7 @@ Expected response:
   "body":"Hello Sweden",
   "__v":0}
 }
+```
  
 ### How to test a PATCH method
 
