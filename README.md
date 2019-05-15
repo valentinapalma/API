@@ -11,6 +11,10 @@ Tools that we used for testing
 ```
 curl -X GET "http://api.softhouse.rocks/posts?userId=3" -H "accept: application/json" | jq '.'
 ```
+How to get the response code (add ```-I```, remove ```| jq '.'```)
+```
+curl -I -X GET "http://api.softhouse.rocks/posts?userId=3" -H "accept: application/json"
+```
 
 Expected response:
 ```
@@ -23,7 +27,10 @@ Expected response:
     "__v": 0
   },
  ```
-
+ Expected response code:
+ ```
+ HTTP/1.1 200 OK
+ ```
 
 ### How to test a POST method
 
