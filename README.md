@@ -1,9 +1,9 @@
-# This is how softhouse.rocks API works.
+# This is how softhouse.rocks API works and how you test it.
 
-Tools that we used 
-command prompt/terminal
-curl
-jq
+Tools that we used for testing
+* command prompt/terminal
+* curl
+* jq
 
 ## How you test POSTS
 
