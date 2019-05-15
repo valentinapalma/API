@@ -42,8 +42,9 @@ Expected response:
 ```  
 
 ### How to test a PUT method
-
+```
 curl -X PUT "http://api.softhouse.rocks/posts/1" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"title\":\"Hello world\",\"body\":\"Hello Sweden\",\"userId\":56}"
+```
 
 Expected response:
 ```
@@ -58,10 +59,11 @@ Expected response:
 ```
  
 ### How to test a PATCH method
-
+```
 curl -X PATCH "http://api.softhouse.rocks/posts/1" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"title\":\"Hello, Patch\",\"body\":\"Testing PATCH\",\"userId\":4445}"
-
+```
 Expected response:
+```
 {
   "_id":"5caaef896b334800cbf6633c",
   "userId":4445,
@@ -70,9 +72,10 @@ Expected response:
   "body":"Testing PATCH",
   "__v":0
 }
+```
 
 ### How to test a DELETE method
-
+```
 curl -X DELETE "http://api.softhouse.rocks/posts/2" -H "accept: application/json"
-
+```
 Expected response:
