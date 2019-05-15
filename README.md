@@ -1,4 +1,4 @@
-# This is how softhouse.rocks API works and how you test it.
+# This is how the [softhouse.rocks API](http://petstore.swagger.io/?url=http://api.softhouse.rocks/swagger.yaml) works and how you test it.
 
 Tools that we used for testing
 * Git BASH
