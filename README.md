@@ -9,7 +9,7 @@ Tools that we used for testing
 
 ### How to test a GET method 
 ```
-curl -X GET "http://api.softhouse.rocks/posts?userId=3" -H "accept: application/json" | jq '.'
+curl -X GET "http://api.softhouse.rocks/posts?userId=3" -H "accept: application/json" | jq .
 ```
 Expected response:
 ```
@@ -24,7 +24,7 @@ Expected response:
  ```
 
 
-**How to get the response code (add ```-I```, remove ```| jq '.'```)**
+**How to get the response code (add ```-I```, remove ```| jq .```)**
 ```
 curl -I -X GET "http://api.softhouse.rocks/posts?userId=3" -H "accept: application/json"
 ```
