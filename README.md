@@ -203,7 +203,7 @@ Expected response:
 HTTP/1.1 200 OK
 ```
  
-### How to test a GET method for fetching a specific user
+### How to test a PUT method for fetching a specific user
 ```
 curl -X PUT "http://api.softhouse.rocks/users/5" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"name\":\"stringify\",\"username\":\"stringtwo\",\"email\":\"stringthree\",\"address\":{\"street\":\"string\",\"suite\":\"string\",\"city\":\"string\",\"zipcode\":\"string\",\"geo\":{\"lat\":0,\"lng\":0}}}"
 ```
